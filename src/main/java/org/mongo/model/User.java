@@ -1,9 +1,12 @@
 package org.mongo.model;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "user")
+//@ComponentScan(basePackages = "org.mongo.controller")
+@Document(collection = "#{userRepository.getCollectionName()}")
+//@Document
 public class User {
     @Id
     private String id;
